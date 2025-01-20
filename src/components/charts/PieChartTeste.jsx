@@ -1,6 +1,6 @@
 import { ResponsivePie } from "@nivo/pie";
 
-export default function PieChartTeste({ data, title, height }) {
+export default function PieChart({ data, title, height }) {
   return (
     <div style={{ height }}>
       <h2 className="text-lg font-semibold mb-2">{title}</h2>

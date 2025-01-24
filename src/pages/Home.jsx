@@ -1,71 +1,168 @@
-import React, { useEffect, useState, useCallback } from "react";
-import DashboardHeader from "../components/DashboardHeader";
-import PieChart from "../components/Charts/PieChart";
-import LineChart from "../components/Charts/LineChart";
-import Loading from "../components/Loading";
+/** @format */
+
+import { useEffect, useState, useCallback } from 'react'
+
+import Loading from '../components/Loading'
+import Grid from '@mui/material/Grid2'
+import DashCard from '../components/DashCard'
+import {
+	BuildingOffice2Icon,
+	MapIcon,
+	
+	UsersIcon,
+} from '@heroicons/react/24/outline'
+import { Box, Typography } from '@mui/material'
 
 export default function Home() {
-  const [chartData, setChartData] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
+    const [chartData, setChartData] = useState({})
+	const [isLoading, setIsLoading] = useState(true)
 
-  const fetchData = useCallback(async () => {
-    try {
-      setIsLoading(true);
-      const data = {
-        genero: [
-          { id: "Masculino", label: "Masculino", value: 60 },
-          { id: "Feminino", label: "Feminino", value: 40 },
-        ],
-        inscritosPorMes: [
-          { x: "Jan", y: 50 },
-          { x: "Fev", y: 75 },
-          { x: "Mar", y: 100 },
-          { x: "Abr", y: 125 },
-        ],
-      };
-      setChartData(data);
-    } catch (error) {
-      console.error("Erro ao carregar dados:", error);
-    } finally {
-      setIsLoading(false);
-    }
-  }, []);
+	const fetchData = useCallback(async () => {
+		try {
+			setIsLoading(true)
+			const data = {
+				genero: [
+					{ id: 'Masculino', label: 'Masculino', value: 60 },
+					{ id: 'Feminino', label: 'Feminino', value: 40 },
+				],
+				inscritosPorMes: [
+					{ x: 'Jan', y: 50 },
+					{ x: 'Fev', y: 75 },
+					{ x: 'Mar', y: 100 },
+					{ x: 'Abr', y: 125 },
+				],
+			}
+			setChartData(data)
+		} catch (error) {
+			console.error('Erro ao carregar dados:', error)
+		} finally {
+			setIsLoading(false)
+		}
+	}, [])
 
-  useEffect(() => {
-    fetchData();
-  }, [fetchData]);
+	useEffect(() => {
+		fetchData()
+	}, [fetchData])
 
-  return (
-    <>
-      <DashboardHeader title="Dashboard - QualiSalvador" />
-      <div className="container mx-auto p-4">
-        {isLoading ? (
-          <Loading />
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {/* Gráficos de Pizza */}
-            <div className="col-span-1">
-              {chartData?.genero && (
-                <PieChart
-                  data={chartData.genero}
-                  title="Distribuição por Gênero"
-                  height={300}
-                />
-              )}
-            </div>
-            {/* Gráfico de Linha */}
-            <div className="col-span-2">
-              {chartData?.inscritosPorMes && (
-                <LineChart
-                  data={chartData.inscritosPorMes}
-                  title="Inscritos por Mês"
-                  height={400}
-                />
-              )}
-            </div>
-          </div>
-        )}
-      </div>
-    </>
-  );
+	return (
+        <>
+            
+			<Typography
+				variant='h1'
+				className='py-4 text-5xl text-center leading-tight sm:leading-relaxed font-[900]'
+			>
+				Dados Demográficos
+			</Typography>
+			<div className='container mx-auto p-4'>
+				{isLoading ? (
+					<Loading />
+				) : (
+					<Grid
+						container
+						spacing={4}
+					>
+						<Typography
+							variant='h2'
+							className='w-full text-center text-2xl font-[700] text-orange-800'
+						>
+							Sobre o bairro
+						</Typography>
+
+						<Grid
+							container
+							spacing={2}
+							columns={{ xs: 1, sm: 2 }}
+						>
+							<DashCard
+								icon={<UsersIcon height={72} />}
+								title='População'
+								main='2.584'
+								detail='habitantes'
+							/>
+
+							<DashCard
+								icon={<MapIcon height={72} />}
+								title='Área'
+								main='2.584'
+								detail='km2'
+							/>
+							<DashCard
+								icon={<BuildingOffice2Icon height={72} />}
+								title='Densidade Populacional'
+								main='2.584'
+								detail='habitantes / km2'
+							/>
+
+							<DashCard
+								title='Prefeitura-bairro'
+								other='Barra-Pituba'
+							/>
+						</Grid>
+
+						<Typography
+							variant='h2'
+							className='w-full text-center text-2xl font-[700] text-orange-800'
+						>
+							Panorama demográfico
+						</Typography>
+
+						<Grid
+							container
+							spacing={2}
+							columns={{ xs: 1, sm: 2 }}
+						>
+							<DashCard
+								icon={<UsersIcon height={72} />}
+								title='% Genero'
+								//ddd
+							/>
+
+							<DashCard
+								icon={<MapIcon height={72} />}
+								title='% Etnia'
+								//ddd
+							/>
+							<DashCard
+								icon={<BuildingOffice2Icon height={72} />}
+								title='Faixa Etária'
+							/>
+						</Grid>
+
+						<Typography
+							variant='h2'
+							className='w-full text-center text-2xl font-[700] text-orange-800'
+						>
+							Trabalho & Renda
+						</Typography>
+
+						<Grid
+							container
+							spacing={2}
+							columns={{ xs: 1, sm: 2 }}
+						>
+							<DashCard
+								icon={<UsersIcon height={72} />}
+								title='Renda Familiar'
+								//ddd
+							/>
+
+							<DashCard
+								icon={<MapIcon height={72} />}
+								title='Fonte de Renda'
+								//ddd
+							/>
+							<DashCard
+								icon={<BuildingOffice2Icon height={72} />}
+								title='Vinculo Trabalhista'
+							/>
+                            </Grid>
+                            
+                            <Box className='h-10'>
+
+                            </Box>
+					</Grid>
+				)}
+			</div>
+		</>
+	)
 }

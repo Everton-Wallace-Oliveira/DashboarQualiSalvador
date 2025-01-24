@@ -1,16 +1,18 @@
 import { ResponsivePie } from "@nivo/pie";
+import PropTypes from "prop-types";
 
-export default function PieChart({ data, title, height }) {
+const PieChart = ({ data, title, height }) => {
   return (
     <div style={{ height }}>
       <h2 className="text-lg font-semibold mb-2">{title}</h2>
       <ResponsivePie
-        data={data}
+              data={data}
+              //
         margin={{ top: 40, right: 80, bottom: 40, left: 80 }}
         innerRadius={0.5}
         padAngle={0.7}
         cornerRadius={3}
-        colors={{ scheme: "nivo" }}
+        colors={{ scheme: "orange_red" }}
         borderWidth={1}
         borderColor={{ from: "color", modifiers: [["darker", 0.2]] }}
         radialLabelsSkipAngle={10}
@@ -22,3 +24,11 @@ export default function PieChart({ data, title, height }) {
     </div>
   );
 }
+
+PieChart.propTypes = {
+    data: PropTypes.any,
+    title: PropTypes.string,
+    height: PropTypes.number,
+}
+
+export default PieChart

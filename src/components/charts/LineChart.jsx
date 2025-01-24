@@ -1,4 +1,5 @@
 import { ResponsiveLine } from "@nivo/line";
+import PropTypes from "prop-types";
 
 export default function LineChart({ data, title, height }) {
   return (
@@ -44,4 +45,11 @@ export default function LineChart({ data, title, height }) {
       />
     </div>
   );
+}
+
+
+LineChart.propTypes = {
+    data: PropTypes.any,
+    title: PropTypes.string,
+    height: PropTypes.number,
 }

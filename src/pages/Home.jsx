@@ -13,9 +13,10 @@ import {
 	MapIcon,
 	UsersIcon,
 } from '@heroicons/react/24/outline'
-import { Box, Typography } from '@mui/material'
+import { Typography } from '@mui/material'
 
 export default function Home() {
+	// eslint-disable-next-line no-unused-vars
     const [chartData, setChartData] = useState({})
 	const [isLoading, setIsLoading] = useState(true)
 

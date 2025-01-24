@@ -12,6 +12,7 @@
 	/* scrollbar-width: thin;
 	scrollbar-color: #047857 transparent; */
 	background-color: transparent;
+    font-family: 'Nunito';
 }
 
 :root {
@@ -28,23 +29,22 @@ body {
 }
 
 @layer base {
-	.typography {
-		.h1 {
+	.head1 {
 			@apply text-3xl md:text-4xl font-black italic;
 		}
-		.h2 {
+	.head2 {
 			@apply text-2xl md:text-3xl font-extrabold italic text-slate-700;
 		}
-		.h3 {
+	.head3 {
 			@apply text-xl font-extrabold;
 		}
-		.h4 {
+	.head4 {
 			@apply text-lg md:text-xl font-extrabold italic text-slate-700;
 		}
-		.h5 {
+	.head5 {
 			@apply text-base md:text-lg font-bold;
 		}
-		.h6 {
+	.head6 {
 			@apply text-base md:text-base font-bold italic text-slate-700;
 		}
 		.p {
@@ -54,7 +54,6 @@ body {
 		.a {
 			@apply no-underline hover:underline hover:text-orange-600;
 		}
-	}
 }
 
 @layer components {
@@ -65,10 +64,10 @@ body {
         sm:items-center sm:w-[280px];
 	}
     /* MAIN */
-    /* .main {
+	 .main {
 
-        @apply z-10 absolute top-[20px] flex justify-start h-[96vh] w-full md:w-[calc(100vw-20px)] pb-[80px] md:pb-[0px] md:pl-[280px] overflow-hidden;
-    } */
+        @apply z-10 mb-[100px] lg:mb-0 lg:pl-[280px] px-[20px] lg:px-[60px] flex flex-col justify-start h-[96vh] w-screen   overflow-hidden;
+    } 
     .views {
         @apply flex max-sm:flex-col-reverse max-sm:items-center justify-between w-full content-start px-[20px] max-sm:pb-[90px] gap-[20px] overflow-scroll;
     }
@@ -77,16 +76,16 @@ body {
 		@apply text-slate-600;
 	}
 	.card-main-text {
-		@apply text-5xl font-[900] leading-relaxed;
+		@apply text-5xl font-[900] leading-tight;
 	}
 	/* SIDEBAR */
 	.tab-list {
 		@apply bottom-0 flex h-max w-full  items-stretch bg-gradient-to-br from-orange-400 to-orange-600 focus:border-hidden rounded-xl shadow-xl transition-all duration-1000
         /* desktop */
-        sm:w-max sm:py-16 sm:gap-16  sm:justify-start sm:rounded-2xl sm:shadow-2xl;
+        lg:w-max lg:py-16 lg:gap-16 lg:justify-start lg:rounded-2xl lg:shadow-2xl;
 	}
 	.tab {
-		@apply flex-row gap-2 justify-center sm:justify-start font-bold text-lg text-start text-orange-100 hover:text-red-800 focus:text-orange-100 focus:bg-red-800 rounded-full transition-all duration-1000;
+		@apply flex-row gap-2 justify-center lg:justify-start font-bold text-lg text-start text-orange-100 hover:text-red-800 focus:text-orange-100 focus:bg-red-800 rounded-full transition-all duration-1000;
 	}
 /* SEARCHBAR */
 	.searchbar {

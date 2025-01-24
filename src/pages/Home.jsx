@@ -10,12 +10,12 @@ import {
 	BriefcaseIcon,
 	
 	HeartIcon,
-} from '@heroicons/react/24/outline'
+	} from '@heroicons/react/24/outline'
 import { Typography } from '@mui/material'
 
 export default function Home() {
 	// eslint-disable-next-line no-unused-vars
-    const [chartData, setChartData] = useState({})
+	const [chartData, setChartData] = useState({})
 	const [isLoading, setIsLoading] = useState(true)
 
 	const fetchData = useCallback(async () => {
@@ -46,7 +46,7 @@ export default function Home() {
 	}, [fetchData])
 
 	return (
-        <>
+		<>
 			<Typography
 				variant='h1'
 				className='py-4 text-8xl text-center leading-tight font-[900] text-red-500'
@@ -83,50 +83,50 @@ export default function Home() {
                         </Typography>
 
 						<Grid className='grid lg:grid-cols-4=1 lg:w-full gap-4'>
-						<Typography
-							variant='h2'
+							<Typography
+								variant='h2'
 								className='w-full text-center text-2xl font-[700] text-orange-600'
-						>
+							>
 								Navegue pelo conteúdo
-						</Typography>
+							</Typography>
 
-						<Grid
-							container
-							spacing={2}
+							<Grid
+								container
+								spacing={2}
 								className='grid lg:grid-cols-3 lg:w-full'
-						>
-							<DashCard
+							>
+								<DashCard
 									icon={<AcademicCapIcon height={72} />}
 									title='Dados por Gênero'
 									main='Educação'
-							/>
+								/>
 
-							<DashCard
+								<DashCard
 									icon={<BriefcaseIcon height={72} />}
 									title='Dados por Etnia'
 									main='Trabalho'
-							/>
-							<DashCard
+								/>
+								<DashCard
 									icon={<HeartIcon height={72} />}
 									title='Dados por Gênero'
 									main='Saúde e Segurança'
 								/>
-							<DashCard
+								<DashCard
 									icon={<AcademicCapIcon height={72} />}
 									title='Dados por Etnia'
 									main='Educação'
-							/>
-							<DashCard
+								/>
+								<DashCard
 									icon={<BriefcaseIcon height={72} />}
 									title='Dados por Etnia'
 									main='Trabalho'
-							/>
-							<DashCard
+								/>
+								<DashCard
 									icon={<HeartIcon height={72} />}
 									title='Dados por Etnia'
 									main='Saúde e Segurança'
-							/>
-                            </Grid>
+								/>
+							</Grid>
 						</Grid>
 					</Grid>
 				)}

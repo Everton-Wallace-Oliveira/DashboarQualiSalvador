@@ -1,71 +1,40 @@
-import React, { useEffect, useState, useCallback } from "react";
-import DashboardHeader from "../components/DashboardHeader";
-import PieChart from "../components/Charts/PieChart";
-import LineChart from "../components/Charts/LineChart";
-import Loading from "../components/Loading";
+import React from "react";
+import Sidebar from "../pages/Sidebar"; // Importando o sidebar pronto (pode substituir o mesmo)
 
-export default function Home() {
-  const [chartData, setChartData] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-
-  const fetchData = useCallback(async () => {
-    try {
-      setIsLoading(true);
-      const data = {
-        genero: [
-          { id: "Masculino", label: "Masculino", value: 60 },
-          { id: "Feminino", label: "Feminino", value: 40 },
-        ],
-        inscritosPorMes: [
-          { x: "Jan", y: 50 },
-          { x: "Fev", y: 75 },
-          { x: "Mar", y: 100 },
-          { x: "Abr", y: 125 },
-        ],
-      };
-      setChartData(data);
-    } catch (error) {
-      console.error("Erro ao carregar dados:", error);
-    } finally {
-      setIsLoading(false);
-    }
-  }, []);
-
-  useEffect(() => {
-    fetchData();
-  }, [fetchData]);
-
+const Home = () => {
   return (
-    <>
-      <DashboardHeader title="Dashboard - QualiSalvador" />
-      <div className="container mx-auto p-4">
-        {isLoading ? (
-          <Loading />
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {/* Gráficos de Pizza */}
-            <div className="col-span-1">
-              {chartData?.genero && (
-                <PieChart
-                  data={chartData.genero}
-                  title="Distribuição por Gênero"
-                  height={300}
-                />
-              )}
-            </div>
-            {/* Gráfico de Linha */}
-            <div className="col-span-2">
-              {chartData?.inscritosPorMes && (
-                <LineChart
-                  data={chartData.inscritosPorMes}
-                  title="Inscritos por Mês"
-                  height={400}
-                />
-              )}
-            </div>
-          </div>
-        )}
+    <div className="flex font-sans bg-gray-100 text-red">
+      <div className="w-1/5">
+        <Sidebar />
       </div>
-    </>
+      <div className="flex-grow m-5">
+        <h1 className="text-5xl text-red-700 mb-5">Texto de introdução</h1>
+        <p className="text-black leading-6 mb-5">
+          Lorem ipsum... Lorem ipsum... Lorem ipsum... Lorem ipsum... Lorem
+          ipsum... Lorem ipsum... Lorem ipsum... Lorem ipsum... Lorem ipsum...
+          Lorem ipsum... Lorem ipsum... Lorem ipsum... Lorem ipsum... Lorem
+          ipsum... Lorem ipsum... Lorem ipsum... Lorem ipsum... Lorem ipsum...
+          Lorem ipsum... Lorem ipsum... Lorem ipsum... Lorem ipsum... Lorem
+          ipsum... Lorem ipsum... Lorem ipsum... Lorem ipsum... Lorem ipsum...
+          Lorem ipsum... Lorem ipsum... Lorem ipsum...
+        </p>
+        <div className="flex justify-between mt-40">
+          <div className="w-1/4 p-16 rounded-lg text-center font-bold text-black text-2xl bg-yellow-400 shadow none">
+            Informações Demográficas
+          </div>
+          <div
+            className="w-1/4 p-16 rounded-lg text-center font-bold text-black text-2xl bg-orange-500 shadow none"
+            shadow
+          >
+            Informações por Gênero
+          </div>
+          <div className="w-1/4 p-16 rounded-lg text-center font-bold text-black text-2xl bg-red-700 shadow none">
+            Informações por Etnia
+          </div>
+        </div>
+      </div>
+    </div>
   );
-}
+};
+
+export default Home;

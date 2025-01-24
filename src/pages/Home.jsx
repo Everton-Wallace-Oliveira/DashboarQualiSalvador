@@ -8,10 +8,8 @@ import DashCard from '../components/DashCard'
 import {
     AcademicCapIcon,
 	BriefcaseIcon,
-	BuildingOffice2Icon,
+	
 	HeartIcon,
-	MapIcon,
-	UsersIcon,
 } from '@heroicons/react/24/outline'
 import { Typography } from '@mui/material'
 

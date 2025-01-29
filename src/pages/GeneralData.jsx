@@ -6,6 +6,7 @@ import Loading from '../components/Loading'
 import { Box, Typography } from '@mui/material'
 import Grid from '@mui/material/Grid2'
 import DashCard from '../components/DashCard'
+import AppStats from '../components/Dashboard/AppStats';
 import {
 	BuildingOffice2Icon,
 	MapIcon,
@@ -45,31 +46,29 @@ export default function GeneralData() {
 
 	return (
 		<>
-			<Typography
-				variant='h1'
-				className='py-4 text-8xl text-center leading-tight sm:leading-relaxed font-[900] text-red-500'
-			>
-				Panorama Geral{' '}
-			</Typography>{' '}
-			<div className='container mx-auto p-4'>
+			<div className='content'>
 				{isLoading ? (
 					<Loading />
 				) : (
 					<Grid
 						container
 						spacing={4}
-					>
+						>
+							
+
+							{/* STATS */}
+							<Grid className='grid container md:grid-cols-2 lg:grid-cols-4'>
+<AppStats icon={<UsersIcon />} title={'População'} value={'habitantes'} />
+								
+</Grid>
+
+
 						<Grid
 							container
 							className='w-full grid lg:grid-cols-2'
 						>
 							<Grid className='grid col-span-1 gap-4'>
-								<Typography
-									variant='h2'
-									className='w-full text-center text-2xl font-[700] text-orange-600'
-								>
-									Sobre o bairro
-								</Typography>
+								<Typography variant='h4'>Sobre o bairro</Typography>
 
 								<Grid
 									container
@@ -90,9 +89,7 @@ export default function GeneralData() {
 										detail='km2'
 									/>
 									<DashCard
-										icon={
-											<BuildingOffice2Icon height={72} />
-										}
+										icon={<BuildingOffice2Icon height={72} />}
 										title='Densidade Populacional'
 										main='2.584'
 										detail='habitantes / km2'
@@ -128,9 +125,7 @@ export default function GeneralData() {
 										//ddd
 									/>
 									<DashCard
-										icon={
-											<BuildingOffice2Icon height={72} />
-										}
+										icon={<BuildingOffice2Icon height={72} />}
 										title='Faixa Etária'
 									/>
 									{/* <DashCard

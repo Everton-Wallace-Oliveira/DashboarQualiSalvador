@@ -7,7 +7,7 @@ const DashCard = ({ icon, title, main, detail, other }) => {
     return (
         <Card
             elevation={4}
-			className='flex flex-auto min-w-min lg:min-h-28 px-2 items-center justify-evenly bg-gradient-to-br from-orange-200 to-orange-300 rounded-lg text-center'
+			className='infocard flex flex-auto min-w-min lg:min-h-28 px-2 items-center justify-evenly bg-gradient-to-br from-orange-200 to-orange-300 rounded-lg text-center'
 		>
 			{icon}
 			<CardContent className='flex flex-col justify-items-center'>

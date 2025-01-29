@@ -38,16 +38,16 @@ const theme = createTheme({
 })
 
 root.render(
-    <React.StrictMode>
-        <StyledEngineProvider injectFirst>
-            <ThemeProvider theme={theme}>
-                <App />
-            </ThemeProvider>
-        </StyledEngineProvider>
-        {/* <Router>
+	<React.StrictMode>
+		<StyledEngineProvider injectFirst>
+			<ThemeProvider theme={theme}>
+				<App />
+			</ThemeProvider>
+		</StyledEngineProvider>
+		{/* <Router>
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>
     </Router> */}
-    </React.StrictMode>,
-);
+	</React.StrictMode>,
+)

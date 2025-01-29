@@ -1,0 +1,34 @@
+/** @format */
+
+@tailwind components;
+
+@layer components {
+	/* TABLE */
+	.table {
+		@apply bg-orange-300 *:bg-transparent;
+	}
+
+	/* CARDS */
+	.infocard {
+		@apply bg-gradient-to-b from-orange-200 to-orange-400;
+	}
+	.card-text {
+		@apply text-slate-600;
+	}
+	.card-main-text {
+		@apply text-5xl font-[900] leading-tight;
+	}
+
+	/* SEARCHBAR */
+	.searchbar {
+		@apply hidden md:flex w-full py-1 px-2 bg-gradient-to-b from-white to-slate-100 rounded-full;
+	}
+
+	/* CONSERTAR!!! */
+	.icon-button {
+		@apply text-blue-500;
+	}
+	.icon {
+		@apply text-red-500;
+	}
+}

@@ -1,12 +1,13 @@
 /** @format */
 
 import { useEffect, useState, useCallback } from 'react'
-import PieChart from '../components/charts/PieChart'
-import LineChart from '../components/charts/LineChart'
 import Loading from '../components/Loading'
+import Grid from '@mui/material/Grid2'
+import MainTable from '../components/MainTable'
 
-export default function DataByRace() {
-	const [chartData, setChartData] = useState(null)
+export default function FullTable() {
+	// eslint-disable-next-line no-unused-vars
+	const [chartData, setChartData] = useState({})
 	const [isLoading, setIsLoading] = useState(true)
 
 	const fetchData = useCallback(async () => {
@@ -42,28 +43,12 @@ export default function DataByRace() {
 				{isLoading ? (
 					<Loading />
 				) : (
-					<div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
-						{/* Gráficos de Pizza */}
-						<div className='col-span-1'>
-							{chartData?.genero && (
-								<PieChart
-									data={chartData.genero}
-									title='Distribuição por Gênero'
-									height={300}
-								/>
-							)}
-						</div>
-						{/* Gráfico de Linha */}
-						<div className='col-span-2'>
-							{chartData?.inscritosPorMes && (
-								<LineChart
-									data={chartData.inscritosPorMes}
-									title='Inscritos por Mês'
-									height={400}
-								/>
-							)}
-						</div>
-					</div>
+					<Grid
+						container
+						spacing={4}
+					>
+						<MainTable />
+					</Grid>
 				)}
 			</div>
 		</>

@@ -1,6 +1,6 @@
 /** @format */
 
-import './styles/App.css'
+import './styles/index.css'
 import { useState } from 'react'
 import { Tabs, Tab } from '@mui/material'
 import Home from './pages/Home'
@@ -25,7 +25,7 @@ function App() {
 
 	return (
 		<>
-			<section className='body '>
+			<section className='body'>
 				{/* <div header></div> */}
 				<header className='header'>
 					<Tabs
@@ -81,7 +81,7 @@ function App() {
 					</Tabs>
 
 					{/* <Sidebar /> */}
-					
+
 					<BottomNavigationBar />
 				</header>
 
@@ -93,7 +93,7 @@ function App() {
 						{value === 4 && 'Dados por Etnia'}
 						{value === 5 && 'Tabela Completa'}
 					</h1>
-					
+
 					{value === 1 && <Home />}
 					{value === 2 && <GeneralData />}
 					{value === 3 && <DataByGender />}

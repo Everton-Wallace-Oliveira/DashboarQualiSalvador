@@ -1,8 +1,0 @@
-/** @format */
-
-@theme {
-	--font-sans: 'Roboto';
-	--font-serif: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
-	--font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-		'Liberation Mono', 'Courier New', monospace;
-}

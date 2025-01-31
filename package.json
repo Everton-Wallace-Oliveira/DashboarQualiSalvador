@@ -15,6 +15,7 @@
     "@heroicons/react": "^2.2.0",
     "@mui/material": "^6.4.1",
     "@mui/x-charts": "^7.24.1",
+    "@nivo/bar": "^0.88.0",
     "@nivo/line": "^0.88.0",
     "@nivo/pie": "^0.88.0",
     "@tailwindcss/postcss": "^4.0.0",
